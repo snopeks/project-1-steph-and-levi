@@ -1,12 +1,12 @@
 var express = require('express');
-var app = expres();
+var app = express();
 var bodyParser = require('body-parser');
 
 // add the body-parser middleware to the server
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //require the models directory in server.js
-var db = require('./models');
+// var db = require('./models');
 
 
 //HTML endpoints
