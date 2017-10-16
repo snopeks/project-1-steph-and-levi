@@ -13,7 +13,7 @@ var db = require('./models');
 app.get('/', function(req, res){
   res.sendFile('views/index.html' , { root : __dirname});
 })
-//TODO: JSON api endpoints 
+//TODO: JSON api endpoints
 
 // listen on port 3000
 app.listen(3000, function() {
