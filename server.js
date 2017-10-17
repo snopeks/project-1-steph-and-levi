@@ -41,7 +41,7 @@ app.get('/sign-up.html', function(req, res){
   res.sendFile('views/sign-up.html' , { root : __dirname});
 })
 
-app.get('/logged-in', function(req, res){
+app.get('/loggedin.html', function(req, res){
   res.sendFile('views/loggedin.html', { root : __dirname});
 })
 
