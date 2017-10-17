@@ -717,6 +717,7 @@ input[type=submit]:hover {
     text-align: center;
 }
 
-#idea{
+#idea p{
   text-align: center;
+  font-size: 130%;
 }
