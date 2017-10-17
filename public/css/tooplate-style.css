@@ -264,9 +264,7 @@ ul.cd-hero-slider {
 	display: inline-block;
 }
 
-.first-service:hover .icon {
-	background-image: url(../img/first-service-white.png);
-}
+
 
 .second-service .icon {
 	background-image: url(../img/second-service-main.png);
@@ -275,9 +273,7 @@ ul.cd-hero-slider {
 	display: inline-block;
 }
 
-.second-service:hover .icon {
-	background-image: url(../img/second-service-white.png);
-}
+
 
 .third-service .icon {
 	background-image: url(../img/third-service-main.png);
@@ -286,9 +282,7 @@ ul.cd-hero-slider {
 	display: inline-block;
 }
 
-.third-service:hover .icon {
-	background-image: url(../img/third-service-white.png);
-}
+
 
 .fourth-service .icon {
 	background-image: url(../img/fourth-service-main.png);
@@ -297,9 +291,7 @@ ul.cd-hero-slider {
 	display: inline-block;
 }
 
-.fourth-service:hover .icon {
-	background-image: url(../img/fourth-service-white.png);
-}
+
 
 
 #what-we-do {
