@@ -26,21 +26,21 @@ $(document).ready(function() {
 });
 function renderIdea(ideaData){
     console.log(ideaData.title)
-    $(".ideaSpace").prepend(`  <div class="row">
-              <div class="service-item first-service">
+    $(".ideaSpace").prepend(`
+        <div class="container">
+              <div class="service-item first-item">
                   <div class="icon"></div>
                   <div id="fun-facts">
-                      <div class="container">
                           <div id="idea">
                           <h4>Name:</h4>
-                          <p>${ideaData.title}</p>
-                          <h4>Description</h4>
-                          <p>${ideaData.description}</p>
-
+                          <p id="singleIdea">${ideaData.title}</p>
+                          <h4>Description:</h4>
+                          <p id="singleIdea">${ideaData.description}</p>
+                          </div>
                   </div>
               </div>
           </div>
-      </div>
+
     </div>`)
 }
 function onSuccess(json) {

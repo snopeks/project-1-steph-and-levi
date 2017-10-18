@@ -231,17 +231,29 @@ ul.cd-hero-slider {
 }
 
 .service-item {
+	cursor: pointer;
 	background-color: #fff;
-	text-align: center;
+	padding: 30px 20px;
 	transition: all 0.7s;
 	box-shadow: 0px 0px 15px #cdcdcd;
 }
+
 
 
 .service-item h4 {
 	font-size: 16px;
 	font-weight: 700;
 	letter-spacing: 0.5px;
+	margin-bottom: 15px;
+	margin-top: 25px;
+}
+
+#idea{
+  text-align: center;
+}
+
+#singleIdea{
+  font-size: 130%;
 }
 
 
@@ -252,7 +264,22 @@ ul.cd-hero-slider {
 	display: inline-block;
 }
 
+.container, #idea{
+  text-align: center;
+  margin-bottom: 15px;
+}
 
+.first-item{
+  width: 50%;
+  display: inline-block;
+  margin: auto;
+  text-align: center;
+
+}
+
+.ideaSpace{
+  text-align: center;
+}
 
 .second-service .icon {
 	background-image: url(../img/second-service-main.png);
@@ -502,14 +529,14 @@ ul.cd-hero-slider {
 /* FUN FACTS */
 
 #fun-facts {
-	padding: 40px 0px;
+	padding: 30px 0px;
   background-color: #f4f4f4;
+
 }
 
 #fun-facts .fact-item {
 	background-color: #f4f4f4;
 	padding: 15px;
-	text-align: center;
 }
 
 .fact-item .counter {
@@ -914,9 +941,9 @@ body.lb-disable-scrolling {
 	.slide-caption .content-caption p {
 		padding: 0 10%;
 	}
-
-
-
+	.service-item {
+		margin-bottom: 30px;
+	}
 
 
 
