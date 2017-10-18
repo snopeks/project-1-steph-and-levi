@@ -31,9 +31,7 @@ function renderIdea(ideaData){
 }
 function onSuccess(json) {
     console.log(json);
-    for (i = 0; i < json.length; i++) {
-        $("#idea").append(`<p>${json[i].title}</p>`);
-    }
+
 }
 
 function onError(xhr, status, errorThrown) {
