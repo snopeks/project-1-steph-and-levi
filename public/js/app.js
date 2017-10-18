@@ -24,10 +24,24 @@ $(document).ready(function() {
         $(this).trigger("reset");
     });
 });
-
 function renderIdea(ideaData){
     console.log(ideaData.title)
-    $("#idea").prepend(`<p>${ideaData.title}</p>`)
+    $(".ideaSpace").prepend(`  <div class="row">
+              <div class="service-item first-service">
+                  <div class="icon"></div>
+                  <div id="fun-facts">
+                      <div class="container">
+                          <div id="idea">
+                          <h4>Name:</h4>
+                          <p>${ideaData.title}</p>
+                          <h4>Description</h4>
+                          <p>${ideaData.description}</p>
+
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>`)
 }
 function onSuccess(json) {
     console.log(json);
