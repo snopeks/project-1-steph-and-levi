@@ -131,9 +131,9 @@ p {
 	background-repeat: no-repeat;
 }
 #main-nav {
-	background-color: transparent;
 	background-image: none!important;
 }
+
 .header .navbar-brand {
     font-weight: 900;
 }
