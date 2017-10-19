@@ -23,8 +23,13 @@ $(document).ready(function() {
         $(this).trigger("reset");
     });
 
+
+
     $(".ideaSpace").on('click', ".delete", function(e){
-      console.log("you clicked delete");
+      var result = confirm("Want to delete?");
+      if (result) {
+
+     console.log("you clicked delete");
       var id = $(this).closest('#fun-facts').data('idea-id');
       console.log('id', id);
 
@@ -35,6 +40,7 @@ $(document).ready(function() {
             $('[data-idea-id=' + id + ']').remove();
           }
       })
+    }
     })
     var likes = 0;
     var liked = false;
@@ -68,6 +74,7 @@ function renderIdea(ideaData){
                           <h4>Description:</h4>
                           <p id="singleIdea">${ideaData.description}</p>
                           <button type="button" class="btn button like">Like</button>
+                          <button type="button" class="btn button edit">Edit Post</button>
                           <button type="button" class="btn button delete">Delete</button>
 
                           </div>
