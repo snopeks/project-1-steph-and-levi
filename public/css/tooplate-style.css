@@ -631,12 +631,12 @@ ul.cd-hero-slider {
 	transition: all 0.3s;
 }
 
-
 /* FOOTER */
 
 footer {
 	background-color: #202628;
 	padding: 20px;
+  position: relative;
 }
 
 footer p {
