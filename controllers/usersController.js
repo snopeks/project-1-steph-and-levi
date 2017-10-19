@@ -10,7 +10,7 @@ function postSignup(req, res) {
   console.log(req.body);
   console.log("\nPOST HIT\n");
   var signupStrategy = passport.authenticate('local-signup', {
-    successRedirect: "/",
+    successRedirect: "/loggedin",
     failureRedirect: "/sign-up",
     failureFlash: true
   });
