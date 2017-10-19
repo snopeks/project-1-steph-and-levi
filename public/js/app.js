@@ -24,6 +24,9 @@ $(document).ready(function() {
         $(this).trigger("reset");
     });
 });
+
+
+
 function renderIdea(ideaData){
     console.log(ideaData.title)
     $(".ideaSpace").prepend(`
@@ -36,19 +39,14 @@ function renderIdea(ideaData){
                           <p id="singleIdea">${ideaData.title}</p>
                           <h4>Description:</h4>
                           <p id="singleIdea">${ideaData.description}</p>
-                          <button type="button" class="btn button">Like</button>
-                          <button type="button" class="btn button">Delete</button>
-
+                          <button type="button" class="btn button like">Like</button>
+                          <button type="button" class="btn button delete">Delete</button>
                           </div>
                   </div>
               </div>
           </div>
-
     </div>`);
 
-    $('.button').on('click', function(){
-      alert("You clicked the button");
-    })
 
 
 }
