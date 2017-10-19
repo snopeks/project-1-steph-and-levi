@@ -44,7 +44,13 @@ function renderIdea(ideaData){
               </div>
           </div>
 
-    </div>`)
+    </div>`);
+
+    $('.button').on('click', function(){
+      alert("You clicked the button");
+    })
+
+
 }
 function onSuccess(json) {
     console.log(json);
