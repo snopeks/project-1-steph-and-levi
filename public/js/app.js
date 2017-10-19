@@ -32,10 +32,13 @@ function renderIdea(ideaData){
                   <div class="icon"></div>
                   <div id="fun-facts">
                           <div id="idea">
-                          <h4>Name:</h4>
+                         <h4>Name:</h4>
                           <p id="singleIdea">${ideaData.title}</p>
                           <h4>Description:</h4>
                           <p id="singleIdea">${ideaData.description}</p>
+                          <button type="button" class="btn class="button">Like</button>
+                          <button type="button" class="btn class="button">Delete</button>
+
                           </div>
                   </div>
               </div>
