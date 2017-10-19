@@ -10,14 +10,15 @@ var morgan         = require('morgan');
 var cookieParser   = require('cookie-parser');
 var session        = require('express-session');
 var methodOverride = require('method-override');
-// add the body-parser middleware to the server
-app.use(bodyParser.urlencoded({ extended: true }));
+
+
+
 // Setup middleware
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 app.use(cookieParser());
-// app.use(bodyParser());
 app.use(ejsLayouts);
-// app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public'));
 // use express.session() before passport.session() to ensure that the login session is restored in the correct order
 app.use(session({ secret: 'WDI-GENERAL-ASSEMBLY-EXPRESS' }));
 // passport.initialize() middleware is required to initialize Passport.
@@ -33,50 +34,23 @@ app.use(methodOverride(function(request, response) {
   }
 }));
 
-// serve the public directory as a static file directory
-app.use(express.static('public'));
 
-// require the models directory in server.js
-var db = require('./models');
 
-//express settings
-app.set('view engine', 'ejs');
-//hardcoded data for playing with
-var ideasArray = [
-  {
-    title: 'pie delivery service',
-    description: 'pie on command! Have a fresh pie delivered to your door within 2hrs.',
-    id: 1
-  },
-  {
-    title: 'hydration app',
-    description: 'an app that syncs with your google calendar and reminds you to drink your daily water requirement',
-    id: 2
-  },
-  {
-    title: 'give me the science',
-    description: 'an app that fundraises for access to publicly-funded scientific journals and sends you 3 articles weekly',
-    id: 3
-  }
-]
 
-//HTML endpoints
-app.get('/', function(req, res){
-  res.sendFile('views/index.html' , { root : __dirname});
-})
 
-app.get('/login', function(req, res){
-  res.sendFile('views/login.html' , { root : __dirname});
-})
+// HTML endpoints
+// app.get('/', function(req, res){
+//   res.sendFile('views/index.html' , { root : __dirname});
+// })
 
-app.get('/sign-up', function(req, res){
-  res.sendFile('views/sign-up.html' , { root : __dirname});
-})
 
-app.get('/loggedin', function(req, res){
-  res.sendFile('views/loggedin.html', { root : __dirname});
-})
 
+
+// app.get('/loggedin', function(req, res){
+//   res.sendFile('views/loggedin.html', { root : __dirname});
+// })
+
+var db = require('./models')
 //TODO: JSON api endpoints
 //view all IDEAS from the db on an api route
 app.get('/api/ideas', function(req, res){
@@ -94,20 +68,34 @@ app.get('/api/ideas/:id', function(req, res){
   res.send(selection)
 })
 
-app.get('/loggedin', function(req, res){
-  //get all db seed ideas and render to loggedin page
-  db.Idea.find({}, function(err, allIdeas){
-    res.json(allIdeas)
-  })
-})
+// app.get('/loggedin', function(req, res){
+//   //get all db seed ideas and render to loggedin page
+//   db.Idea.find({}, function(err, allIdeas){
+//     res.json(allIdeas)
+//   })
+// })
+//
+// app.post('/loggedin', function(req, res){
+//   var inputIdea = req.body;
+//   db.Idea.create(inputIdea, function(err, idea){
+//     if(err) {console.log('error', err);}
+//     res.json(inputIdea)
+//   })
+// })
+// Express settings
+app.set('view engine', 'ejs');
+app.set("views", __dirname + "/views");
 
-app.post('/loggedin', function(req, res){
-  var inputIdea = req.body;
-  db.Idea.create(inputIdea, function(err, idea){
-    if(err) {console.log('error', err);}
-    res.json(inputIdea)
-  })
-})
+require('./config/passport')(passport);
+
+app.use(function(req, res, next){
+  global.currentUser = req.user;
+  next();
+});
+
+var routes = require(__dirname + "/config/routes");
+app.use(routes);
+
 
 // listen on port 3000
 app.listen(3000, function() {
