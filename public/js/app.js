@@ -47,7 +47,6 @@ $(document).ready(function() {
     })
     var likes = 0;
     var liked = false;
-
     $('.ideaSpace').on('click', '.like', function() {
         if (!liked) {
             likes++;
@@ -62,6 +61,7 @@ $(document).ready(function() {
     })
 });
 
+//edit post
 function handleIdeaEditClick(ideaUpdate) {
     console.log("you clicked edit!")
     console.log(this)
@@ -84,13 +84,11 @@ function handleIdeaEditClick(ideaUpdate) {
     $idea.find('p.description').html('<textarea class="edit-idea-description" cols="30" rows="5" value="' + ideaDesc + '"></textarea>');
 }
 
+// Takes new post and sends it to handleIdeaUpdateResponse
 function handleIdeaSaveClick() {
-    console.log(this)
     var $idea = $(this).closest('#fun-facts')
-    console.log($idea)
         // console.log(this).closest('#fun-facts').data('idea-id');
     var ideaId = $($idea).data('idea-id');
-    console.log(ideaId)
     var $idea = $('[data-idea-id=' + ideaId + ']');
 
     var data = {
@@ -98,7 +96,7 @@ function handleIdeaSaveClick() {
         description: $idea.find('.edit-idea-description').val(),
     };
 
-    console.log('PUTing data for idea', $idea, 'with data', data);
+
 
     $.ajax({
         method: 'PUT',
@@ -120,6 +118,7 @@ function handleIdeaUpdatedResponse(data) {
     renderIdea(data);
 }
 
+//displays the post that was entered into the form
 function renderIdea(ideaData) {
     console.log(ideaData)
     $(".ideaSpace").prepend(`
@@ -171,6 +170,8 @@ function renderIdea(ideaData) {
 
     })
 }
+
+
 
 
 function onSuccess(json) {
