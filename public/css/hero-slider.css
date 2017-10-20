@@ -719,3 +719,11 @@ input[type=submit]:hover {
 #space{
   height: 100%;
 }
+
+.like{
+  padding-right: 8%;
+}
+
+.edit{
+  padding-right: 8%;
+}
