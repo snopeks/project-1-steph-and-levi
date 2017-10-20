@@ -51,11 +51,11 @@ $(document).ready(function() {
     $('.ideaSpace').on('click', '.like', function() {
         if (!liked) {
             likes++;
-            $(this).closest('.like').text(likes + " likes")
+            $(this).closest('.like').text("Likes " + likes)
             liked = true;
         } else {
             likes--;
-            $(this).closest('.like').text(likes + " likes")
+            $(this).closest('.like').text("Likes " + likes)
             liked = false;
         }
 
@@ -81,7 +81,7 @@ function handleIdeaEditClick(ideaUpdate) {
     $idea.find('p.title').html('<input class="edit-idea-title" value="' + ideaTitle + '"></input>');
     //get idea description and replace its field with an input element
     var ideaDesc = $idea.find('.description').text();
-    $idea.find('p.description').html('<input class="edit-idea-description" value="' + ideaDesc + '"></input>');
+    $idea.find('p.description').html('<textarea class="edit-idea-description" cols="30" rows="5" value="' + ideaDesc + '"></textarea>');
 }
 
 function handleIdeaSaveClick() {
@@ -170,7 +170,6 @@ function renderIdea(ideaData) {
       </div>`);
 
     })
-
 }
 
 
