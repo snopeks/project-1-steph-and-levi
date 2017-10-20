@@ -131,11 +131,14 @@ function renderIdea(ideaData) {
                           <p class="title">${ideaData.title}</p>
                           <h4>Description:</h4>
                           <p class="description">${ideaData.description}</p>
-                          <button type="button" class="btn btn-primary like">Like</button>
-                          <button type="button" class="btn btn-info edit">Edit Post</button>
-                          <button type="button" class="btn delete">Delete</button>
+                          <i class="fa fa-2x fa-thumbs-up like" aria-hidden="true"></i>
+                          <i class="fa fa-2x fa-pencil edit" aria-hidden="true"></i>
+                          <i class="fa fa-2x fa-trash-o delete" aria-hidden="true"></i>
+
+
                           <button type="button" class='btn btn-info save-idea hidden'>Save Changes</button>
                           <button type="button" class='btn btn-danger cancel-edit hidden'>Cancel</button>
+
 
                       </div>
                   </div>
