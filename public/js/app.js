@@ -149,32 +149,7 @@ function renderIdea(ideaData) {
     $('.cancel-edit').on('click', function() {
         document.location.reload(true);
         $('.ideabox').remove();
-
-        $(".ideaSpace").prepend(`
-            <div class="container ideabox" data-idea-id=${ideaData._id}>
-                  <div class="service-item first-item" >
-                      <div class="icon"></div>
-                      <div id="fun-facts" data-idea-id=${ideaData._id}>
-                              <div id="idea">
-                             <h4>Name:</h4>
-                              <p class="title">${ideaData.title}</p>
-                              <h4>Description:</h4>
-                              <p class="description">${ideaData.description}</p>
-                              <i class="fa fa-2x fa-thumbs-up like" aria-hidden="true"></i>
-                              <i class="fa fa-2x fa-pencil edit" aria-hidden="true"></i>
-                              <i class="fa fa-2x fa-trash-o delete" aria-hidden="true"></i>
-
-
-                              <button type="button" class='btn btn-info save-idea hidden'>Save Changes</button>
-                              <button type="button" class='btn btn-danger cancel-edit hidden'>Cancel</button>
-
-
-                          </div>
-                      </div>
-                  </div>
-              </div>
-        </div>`);
-
+        renderIdea();
     })
 }
 
