@@ -1,5 +1,6 @@
 var mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/innovately");
+mongoose.connect( process.env.MONGODB_URI || "mongodb://localhost/innovately" );
+
 
 var User = require('./user')
 var Idea = require('./idea')
