@@ -16,7 +16,7 @@ p {
 }
 .primary-button a {
 	display: inline-block;
-	background-color: #a2cf8d;
+	background-color: #92AB8D;
 	padding: 12px 18px;
 	color: #fff;
 	font-size: 11px;
@@ -196,6 +196,7 @@ bootstrap.min.css:5
 
 .slide-caption {
 	color: #fff;
+  margin-top: 6%;
 }
 
 .slide-caption span {
@@ -432,7 +433,7 @@ ul.cd-hero-slider {
 /* BLOG */
 
 #blog {
-	background-image: url(../img/blog-bg.png);
+background-image: url(../img/blog-bg.png);
 	background-repeat: no-repeat;
 	background-size: cover;
 	width: 100%;
@@ -929,6 +930,7 @@ body.lb-disable-scrolling {
 @media (max-width: 768px){
 	.cd-hero .slide-caption span {
 		font-size: 13px;
+    margin-top: 25%;
 	}
 
 	.cd-hero .slide-caption h2 {
