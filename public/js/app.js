@@ -10,6 +10,8 @@ $(document).ready(function() {
         error: onError
     });
 
+
+
     $('.idea-form').on('submit', function(e) {
         e.preventDefault();
         var formData = $(this).serialize();
@@ -152,8 +154,6 @@ function renderIdea(ideaData) {
         renderIdea();
     })
 }
-
-
 
 
 function onSuccess(json) {
