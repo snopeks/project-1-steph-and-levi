@@ -1,52 +1,50 @@
 var db = require('../models')
 
 //get all ideas
-function index(req, res){
-  console.log('in api/ideas route function')
-  db.Idea.find({}, function(err, allIdeas){
-    if(err){ console.log('there was an error getting ideas', err); }
+const index = (req, res) => {
+  console.log("in es6 index fn");
+  db.Idea.find({}, (err, allIdeas) => {
+    if(err){ console.log('there was an error getting ideas', err);}
     res.json(allIdeas)
-  })
-}
+  });
+};
 
 // create an idea
-function create(req, res){
-  //get current user id
-  // var $CurrentUser = req.body._id
-  // console.log($CurrentUser)
-  //create new idea
-  var userId = req.body.userId
-  var inputIdea = req.body;
-  console.log();
-  db.Idea.create(inputIdea, function(err, idea){
+
+const create = (req, res) => {
+  let userId = req.body.userId;
+  let inputIdea  = req.body;
+  console.log(userId, inputIdea)
+  db.Idea.create(inputIdea, (err, idea) => {
     if(err) {console.log('error', err);}
-    //push new idea into user db
-    //save the user
     res.json(idea)
   })
 }
 
 //update an idea
-function update(req, res){
-  db.Idea.findById(req.params.id, function(err, foundIdea){
-    if(err) { console.log('error updating idea', err); }
+
+const update = (req, res) => {
+  db.Idea.findById(req.params.id, (err, foundIdea) => {
+    if(err) {console.log('error updating idea', err);}
     foundIdea.title = req.body.title;
     foundIdea.description = req.body.description;
-    foundIdea.save(function(err, savedIdea){
-      if(err) { console.log("error saving idea", err); }
+    foundIdea.save((err, savedIdea) => {
+      if(err) { console.log("error saving idea", err);}
       res.json(savedIdea);
     })
   })
 }
 
 //delete an idea
-function destroy(req, res){
-  console.log('want to delete an idea!')
-  db.Idea.findByIdAndRemove(req.params.id, function(err, deletedIdea){
+
+const destroy = (req, res) => {
+  console.log("let's destroy an idea!");
+  db.Idea.findByIdAndRemove(req.params.id, (err, deletedIdea) => {
     if(err) {console.log('error deleting idea', err);}
-    res.json(deletedIdea)
+    res.json(deletedIdea);
   })
 }
+
 
 module.exports = {
   index: index,
