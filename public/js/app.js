@@ -11,10 +11,10 @@ $(document).ready(function() {
     });
 
 
-
     $('.idea-form').on('submit', function(e) {
         e.preventDefault();
-        var formData = $(this).serialize();
+        console.log(this)
+        let formData = $(this).serialize();
         console.log(formData)
 
         $.post('/api/ideas', formData, function(idea) {
@@ -31,11 +31,11 @@ $(document).ready(function() {
 
 
     $(".ideaSpace").on('click', ".delete", function(e) {
-        var result = confirm("Want to delete?");
+        let result = confirm("Want to delete?");
         if (result) {
 
             console.log("you clicked delete");
-            var id = $(this).closest('#fun-facts').data('idea-id');
+            let id = $(this).closest('#fun-facts').data('idea-id');
             console.log('id', id);
 
             $.ajax({
@@ -47,8 +47,8 @@ $(document).ready(function() {
             })
         }
     })
-    var likes = 0;
-    var liked = false;
+    let likes = 0;
+    let liked = false;
     $('.ideaSpace').on('click', '.like', function() {
         if (!liked) {
             likes++;
@@ -67,8 +67,8 @@ $(document).ready(function() {
 function handleIdeaEditClick(ideaUpdate) {
     console.log("you clicked edit!")
     console.log(this)
-    var $idea = $(this).closest('#fun-facts')
-    var $ideaId = $idea.data('idea-id')
+    let $idea = $(this).closest('#fun-facts')
+    let $ideaId = $idea.data('idea-id')
     console.log($ideaId)
         //display save-idea and cancel-edit buttons
     $idea.find(".save-idea").toggleClass('hidden');
@@ -78,27 +78,23 @@ function handleIdeaEditClick(ideaUpdate) {
     $idea.find('.like').toggleClass('hidden');
     $idea.find('.delete').toggleClass('hidden');
     // get idea title and replace its field with an input element
-    var ideaTitle = $idea.find(".title").text();
+    let ideaTitle = $idea.find(".title").text();
     console.log(ideaTitle)
     $idea.find('p.title').html('<input class="edit-idea-title" value="' + ideaTitle + '"></input>');
     //get idea description and replace its field with an input element
-    var ideaDesc = $idea.find('.description').text();
+    let ideaDesc = $idea.find('.description').text();
     $idea.find('p.description').html('<textarea class="edit-idea-description" cols="30" rows="5" value="' + ideaDesc + '"></textarea>');
 }
 
 // Takes new post and sends it to handleIdeaUpdateResponse
 function handleIdeaSaveClick() {
-    var $idea = $(this).closest('#fun-facts')
-        // console.log(this).closest('#fun-facts').data('idea-id');
-    var ideaId = $($idea).data('idea-id');
-    var $idea = $('[data-idea-id=' + ideaId + ']');
+    let $idea = $(this).closest('#fun-facts')
+    let ideaId = $($idea).data('idea-id');
 
-    var data = {
+    let data = {
         title: $idea.find('.edit-idea-title').val(),
         description: $idea.find('.edit-idea-description').val(),
     };
-
-
 
     $.ajax({
         method: 'PUT',
@@ -110,10 +106,10 @@ function handleIdeaSaveClick() {
 
 
 
-function handleIdeaUpdatedResponse(data) {
+const handleIdeaUpdatedResponse = (data) => {
     console.log('response to update', data);
 
-    var ideaId = data._id;
+    let ideaId = data._id;
 
     // remove this album from the page, re-draw with updated data
     $('[data-idea-id=' + ideaId + ']').remove();
@@ -121,7 +117,7 @@ function handleIdeaUpdatedResponse(data) {
 }
 
 //displays the post that was entered into the form
-function renderIdea(ideaData) {
+const renderIdea = (ideaData) => {
     console.log(ideaData)
     $(".ideaSpace").prepend(`
         <div class="container ideabox" data-idea-id=${ideaData._id}>
@@ -156,14 +152,14 @@ function renderIdea(ideaData) {
 }
 
 
-function onSuccess(json) {
+const onSuccess = (json) => {
     console.log(json);
     json.forEach(function(ideas) {
         renderIdea(ideas)
     })
 }
 
-function onError(xhr, status, errorThrown) {
+const onError = (xhr, status, errorThrown) => {
     console.log("Error: " + errorThrown);
     console.log("Status: " + status);
     console.dir(xhr);
