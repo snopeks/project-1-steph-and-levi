@@ -106,7 +106,7 @@ function handleIdeaSaveClick() {
 
 
 
-function handleIdeaUpdatedResponse(data) {
+const handleIdeaUpdatedResponse = (data) => {
     console.log('response to update', data);
 
     let ideaId = data._id;
@@ -117,7 +117,7 @@ function handleIdeaUpdatedResponse(data) {
 }
 
 //displays the post that was entered into the form
-function renderIdea(ideaData) {
+const renderIdea = (ideaData) => {
     console.log(ideaData)
     $(".ideaSpace").prepend(`
         <div class="container ideabox" data-idea-id=${ideaData._id}>
@@ -152,14 +152,14 @@ function renderIdea(ideaData) {
 }
 
 
-function onSuccess(json) {
+const onSuccess = (json) => {
     console.log(json);
     json.forEach(function(ideas) {
         renderIdea(ideas)
     })
 }
 
-function onError(xhr, status, errorThrown) {
+const onError = (xhr, status, errorThrown) => {
     console.log("Error: " + errorThrown);
     console.log("Status: " + status);
     console.dir(xhr);
